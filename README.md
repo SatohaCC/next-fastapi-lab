@@ -2,6 +2,7 @@
 
 学習したものを試すためのリポジトリ。
 
+フロントはローカルで動かし、バックエンドはDockerコンテナで動かします。
 
 ---
 
@@ -16,7 +17,30 @@ nextjs-fastapi-lab/
 │   └── requirements.txt
 ├── frontend/          # Next.js (Node.js/React) アプリケーション一式
 │   ├── package.json   # 依存パッケージ定義
-│   ├── Dockerfile     # コンテナイメージ定義 (Web UI)
-│   └── ...
-└── docker-compose.yml # 開発用コンテナ起動設定
+│   └── ...            # (ローカル実行)
+└── docker-compose.yml # バックエンド開発用コンテナ起動設定
 ```
+
+## 🚀 起動方法
+
+### 1. バックエンド (FastAPI) の起動
+
+Docker Compose を使用して起動します。
+
+```bash
+docker compose up -d
+```
+
+起動後、APIドキュメントには [http://localhost:8000/docs](http://localhost:8000/docs) でアクセスできます。
+
+### 2. フロントエンド (Next.js) の起動
+
+Node.js環境を使用してローカルで起動します。（`frontend` ディレクトリ内でコマンドを実行します）
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+起動後、アプリには [http://localhost:3000](http://localhost:3000) でアクセスできます。
