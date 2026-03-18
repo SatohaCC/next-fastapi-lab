@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky",
+    "prepare": "panda codegen && husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,7 +13,6 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md,mdx}\" --ignore-unknown"
   },
   "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "next": "16.1.7",
     "react": "19.2.3",
     "react-dom": "19.2.3"
@@ -32,8 +31,5 @@
     "lint-staged": "^16.4.0",
     "prettier": "3.8.1",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
   }
 }
