@@ -1,6 +1,8 @@
 import { defineConfig } from '@pandacss/dev';
+import { globalCss } from './src/theme/globalCss';
 
 export default defineConfig({
+  globalCss,
   // Whether to use css reset
   preflight: true,
 
