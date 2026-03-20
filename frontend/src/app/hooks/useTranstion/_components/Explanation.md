@@ -10,10 +10,22 @@ const [isPending, startTransition] = useTransition();
 
 ## 前提知識
 
+### アクション
+
+startTransition で呼び出される関数は「アクション」と呼ばれる。
+
 ### トランジション
 
 画面更新の優先順位を決める仕組み。
 緊急性の高い更新 (urgent update) と高くない更新 (non-urgent update)を区別するためのもの。
+
+### 緊急性の高い更新 (urgent update)
+
+ユーザーの操作に即座に反応させる必要がある更新。
+
+### 高くない更新 (non-urgent update)
+
+ユーザーの操作に即座に反応させる必要がない更新。
 
 ## useTransitionの引数
 
