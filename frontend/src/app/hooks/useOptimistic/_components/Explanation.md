@@ -9,6 +9,10 @@
 const [optimisticState, addOptimistic] = useOptimistic(state, updateFn);
 ```
 
+### SWRだとこのへん。
+
+https://swr.vercel.app/ja/docs/mutation#optimistic-updates
+
 ## 前提知識
 
 ### 楽観的更新(Optimistic Updates)
