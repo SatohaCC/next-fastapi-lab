@@ -1,10 +1,10 @@
-import Explanation from './_components/Explanation';
+import MarkdownViewer from '../../../components/MarkdownViewer';
 import { PickingList } from './_components/PickingList';
 
 export default function DrugRegistration() {
   return (
     <>
-      <Explanation />
+      <MarkdownViewer relativePath="src/app/hooks/useOptimistic/_components/Explanation.md" />
       <PickingList
         initialMeds={[
           { id: 1, name: 'アセトアミノフェン錠', isPicked: false },

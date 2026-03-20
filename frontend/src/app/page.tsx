@@ -13,7 +13,7 @@ export default function Home() {
           gap: '4',
         })}
       >
-        <Link href="/hooks/useTranstion">useTranstion</Link>
+        <Link href="/hooks/useTransition">useTransition</Link>
         <Link href="/hooks/useActionState">useActionState</Link>
         <Link href="/hooks/useOptimistic">useOptimistic</Link>
       </div>
