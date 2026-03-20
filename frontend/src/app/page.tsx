@@ -15,6 +15,7 @@ export default function Home() {
       >
         <Link href="/hooks/useTranstion">useTranstion</Link>
         <Link href="/hooks/useActionState">useActionState</Link>
+        <Link href="/hooks/useOptimistic">useOptimistic</Link>
       </div>
     </div>
   );
