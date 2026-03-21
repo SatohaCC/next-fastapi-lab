@@ -43,7 +43,10 @@ export function PickingList({ initialMeds }: { initialMeds: Drug[] }) {
           const isUpdating = meds.find((m) => m.id === med.id)?.isPicked !== med.isPicked;
 
           return (
-            <li key={med.id} className={styles.listItem} data-updating={isUpdating}>
+            <li
+              key={med.id}
+              className={styles.listItemRecipe({ state: isUpdating ? 'updating' : 'idle' })}
+            >
               <input
                 type="checkbox"
                 checked={med.isPicked}
@@ -51,7 +54,7 @@ export function PickingList({ initialMeds }: { initialMeds: Drug[] }) {
                 onChange={() => handleToggle(med.id)}
                 className={styles.checkbox}
               />
-              <span className={styles.itemName} data-picked={med.isPicked}>
+              <span className={styles.itemNameRecipe({ picked: med.isPicked })}>
                 {med.name}
               </span>
               {isUpdating && <small className={styles.statusText}>同期中...</small>}
