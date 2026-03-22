@@ -24,8 +24,10 @@ export async function signupAction(
   // 1. 少し時間をかけて処理するシミュレーション（ネットワーク遅延など）
   await new Promise((res) => setTimeout(res, 1000));
 
-  const email = formData.get('email') as string;
-  const username = formData.get('username') as string;
+  const email = (formData.get('email') as string) || '';
+  const username = (formData.get('username') as string) || '';
+
+  console.log('signupAction received:', { email, username });
 
   const errors: any = {};
 

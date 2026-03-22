@@ -33,53 +33,6 @@ export const description = css({
   lineHeight: 'relaxed',
 });
 
-export const button = css({
-  paddingInline: '5',
-  paddingBlock: '2.5',
-  backgroundColor: 'blue.600',
-  color: 'white',
-  fontWeight: 'semibold',
-  borderRadius: 'lg',
-  cursor: 'pointer',
-  transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 'fit-content',
-  boxShadow: 'sm',
-  _hover: {
-    backgroundColor: 'blue.700',
-    transform: 'translateY(-1px)',
-    boxShadow: 'md',
-  },
-  _active: {
-    transform: 'translateY(1px)',
-    boxShadow: 'none',
-  },
-  _disabled: {
-    backgroundColor: 'gray.300',
-    color: 'gray.500',
-    cursor: 'not-allowed',
-    transform: 'none',
-    boxShadow: 'none',
-  },
-});
-
-export const retryButton = css({
-  paddingInline: '4',
-  paddingBlock: '2',
-  backgroundColor: 'transparent',
-  color: 'red.600',
-  fontWeight: 'medium',
-  borderRadius: 'md',
-  cursor: 'pointer',
-  border: '1px solid',
-  borderColor: 'red.200',
-  transition: 'all 0.2s',
-  _hover: { backgroundColor: 'red.50' },
-  _active: { backgroundColor: 'red.100' },
-});
-
 export const card = css({
   padding: '8',
   backgroundColor: 'gray.50',

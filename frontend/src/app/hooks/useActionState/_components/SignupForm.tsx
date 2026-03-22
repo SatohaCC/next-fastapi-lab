@@ -1,8 +1,8 @@
 'use client';
 import { useActionState } from 'react';
 
+import { Button, Form, FormMessage, TextField } from '../../../../ui';
 import { type SignupState, signupAction } from './actions';
-import * as styles from './form.css';
 
 export default function SignupForm() {
   const initialState: SignupState = {
@@ -14,41 +14,30 @@ export default function SignupForm() {
   const [state, formAction, isPending] = useActionState(signupAction, initialState);
 
   return (
-    <>
-      <h2 className={styles.titleText}>実装例</h2>
-      <form action={formAction} className={styles.formContainer}>
-        {/* メールアドレス入力 */}
-        <div className={styles.fieldWrapper}>
-          <label className={styles.label}>メールアドレス</label>
-          <input
-            name="email"
-            defaultValue={state.prevValues?.email} // 送信失敗時に値を残す
-            disabled={isPending}
-            className={styles.inputRecipe({ invalid: !!state.errors?.email })}
-          />
-          {state.errors?.email && <p className={styles.errorText}>{state.errors.email}</p>}
-        </div>
+    <Form title="実装例" action={formAction} validationErrors={state.errors}>
+      {/* メールアドレス入力 */}
+      <TextField
+        name="email"
+        label="メールアドレス"
+        defaultValue={state.prevValues?.email}
+        isDisabled={isPending}
+      />
 
-        {/* ユーザー名入力 */}
-        <div className={styles.fieldWrapper}>
-          <label className={styles.label}>ユーザー名</label>
-          <input
-            name="username"
-            defaultValue={state.prevValues?.username}
-            disabled={isPending}
-            className={styles.inputRecipe({ invalid: !!state.errors?.username })}
-          />
-          {state.errors?.username && <p className={styles.errorText}>{state.errors.username}</p>}
-        </div>
+      {/* ユーザー名入力 */}
+      <TextField
+        name="username"
+        label="ユーザー名"
+        defaultValue={state.prevValues?.username}
+        isDisabled={isPending}
+      />
 
-        {/* 送信ボタン */}
-        <button type="submit" disabled={isPending} className={styles.buttonRecipe({ visual: 'solid' })}>
-          {isPending ? '確認中...' : '登録する'}
-        </button>
+      {/* 送信ボタン */}
+      <Button type="submit" isDisabled={isPending}>
+        {isPending ? '確認中...' : '登録する'}
+      </Button>
 
-        {/* 成功メッセージ */}
-        {state.success && <p className={styles.successText}>{state.message}</p>}
-      </form>
-    </>
+      {/* 成功メッセージ */}
+      {state.success && <FormMessage>{state.message}</FormMessage>}
+    </Form>
   );
 }

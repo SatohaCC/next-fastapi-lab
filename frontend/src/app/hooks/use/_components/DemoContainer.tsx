@@ -2,16 +2,15 @@
 
 import { Suspense, useState, useTransition } from 'react';
 
+import { Button } from '../../../../ui';
 import { ErrorBoundary } from './ErrorBoundary';
 import { StockDisplay } from './StockDisplay';
 import { StockData, fetchStockData } from './api';
 import {
-  button,
   card,
   container,
   description,
   header,
-  retryButton,
   skeletonError,
   skeletonLoading,
   title,
@@ -43,9 +42,9 @@ export default function DemoContainer({
         </p>
       </div>
 
-      <button className={button} onClick={handleReload} disabled={isPending}>
+      <Button onPress={handleReload} isDisabled={isPending}>
         {isPending ? '更新中...' : 'データを再取得'}
-      </button>
+      </Button>
 
       <div className={card}>
         {/* ErrorBoundary は内部で throw されたエラーをキャッチし、fallback を表示します */}
@@ -53,9 +52,9 @@ export default function DemoContainer({
           fallback={(error, reset) => (
             <div className={skeletonError}>
               <p>🚫 {error.message}</p>
-              <button className={retryButton} onClick={reset}>
+              <Button variant="danger" size="sm" onPress={reset}>
                 もう一度試す
-              </button>
+              </Button>
             </div>
           )}
           onReset={handleReload}
